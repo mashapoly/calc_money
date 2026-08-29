@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<meta name="theme-color" content="#2563eb" />
+<title>Регистрация — Сплит-копилка</title>
+<link rel="stylesheet" href="css/style.css" />
+</head>
+<body>
+  <div class="auth-shell">
+    <div class="auth-card">
+      <div class="auth-logo">💸</div>
+      <div class="auth-title">Создать аккаунт</div>
+      <div class="auth-subtitle">Считаем, кто кому должен, в реальном времени</div>
+
+      <form id="register-form">
+        <div class="field">
+          <label for="username">Логин</label>
+          <input id="username" type="text" autocomplete="username" required minlength="3" maxlength="64" />
+        </div>
+        <div class="field">
+          <label for="password">Пароль</label>
+          <input id="password" type="password" autocomplete="new-password" required minlength="4" maxlength="128" />
+        </div>
+        <button class="btn block" type="submit">Зарегистрироваться</button>
+        <div class="error" id="error"></div>
+      </form>
+
+      <div class="auth-footer">Уже есть аккаунт? <a href="login.html">Войти</a></div>
+    </div>
+  </div>
+
+  <script src="js/api.js"></script>
+  <script src="js/register.js"></script>
+</body>
+</html>

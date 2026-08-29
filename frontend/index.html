@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<meta name="theme-color" content="#2563eb" />
+<title>Мои группы — Сплит-копилка</title>
+<link rel="stylesheet" href="css/style.css" />
+</head>
+<body>
+  <header class="topbar">
+    <div class="brand"><span class="logo">💸</span> Сплит-копилка</div>
+    <div class="topbar-spacer"></div>
+    <div class="topbar-actions">
+      <span class="muted" id="whoami"></span>
+      <button class="text-btn" id="logout-btn">Выйти</button>
+    </div>
+  </header>
+
+  <main class="page">
+    <div class="card" id="join-card" style="display:none">
+      <h3 style="margin-top:0">Присоединяемся…</h3>
+      <p class="muted" id="join-status">Обрабатываем приглашение…</p>
+    </div>
+
+    <div class="page-header">
+      <div>
+        <h1 class="page-title">Мои группы</h1>
+        <div class="page-subtitle">Выберите группу или создайте новую</div>
+      </div>
+    </div>
+
+    <div class="groups-grid" id="groups-list">
+      <div class="empty">Загрузка…</div>
+    </div>
+
+    <div class="row" style="align-items:start;margin-top:32px;flex-wrap:wrap">
+      <div style="min-width:280px">
+        <div class="section-title">Создать новую группу</div>
+        <div class="card">
+          <form id="create-group-form">
+            <div class="field">
+              <label for="group-name">Название группы</label>
+              <input id="group-name" type="text" placeholder="Например: Сочи 2025" required maxlength="128" />
+            </div>
+            <div class="field">
+              <label>Валюта расходов</label>
+              <div class="currency-picker" id="group-currency-picker"></div>
+            </div>
+            <button class="btn block" type="submit">Создать</button>
+            <div class="error" id="create-error"></div>
+          </form>
+        </div>
+      </div>
+
+      <div style="min-width:280px">
+        <div class="section-title">Войти по ссылке-приглашению</div>
+        <div class="card">
+          <form id="join-form">
+            <div class="field">
+              <label for="invite-code">Код приглашения или ссылка</label>
+              <input id="invite-code" type="text" placeholder="Вставьте код или ссылку" required />
+            </div>
+            <button class="btn secondary block" type="submit">Присоединиться</button>
+            <div class="error" id="join-error"></div>
+          </form>
+        </div>
+      </div>
+    </div>
+  </main>
+
+  <!-- Group settings (opened from a group card's gear icon, before entering the group) -->
+  <div class="modal-overlay" id="settings-modal-overlay">
+    <div class="modal" id="settings-modal">
+      <div class="modal-header">
+        <h3>Настройки группы</h3>
+        <button class="text-btn" id="settings-modal-close">Закрыть</button>
+      </div>
+
+      <form id="settings-form">
+        <div class="field">
+          <label for="settings-name">Название группы</label>
+          <input id="settings-name" type="text" required maxlength="128" />
+        </div>
+        <div class="field">
+          <label>Валюта</label>
+          <div class="currency-picker" id="settings-currency-picker"></div>
+        </div>
+        <button class="btn block" type="submit">Сохранить</button>
+        <div class="error" id="settings-error"></div>
+      </form>
+
+      <div class="section-title">Участники</div>
+      <div class="list-group" id="settings-members-list"></div>
+
+      <div style="margin-top:24px;padding-top:20px;border-top:1px solid var(--separator)">
+        <button class="btn danger block" id="delete-group-btn" style="display:none">Удалить группу</button>
+        <button class="btn secondary block" id="leave-group-btn" style="display:none">Покинуть группу</button>
+      </div>
+    </div>
+  </div>
+
+  <script src="js/api.js"></script>
+  <script src="js/app.js"></script>
+</body>
+</html>
